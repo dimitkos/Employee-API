@@ -18,5 +18,7 @@ namespace ProxyApi.Interfaces
         void UpdateEmployee(int employeeid, ProxyEmployee employee);
 
         void DeleteEmployee(int employeeid);
+
+        void CreateOrUpdate(ProxyEmployee employee);
     }
 }
