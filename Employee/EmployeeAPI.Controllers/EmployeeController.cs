@@ -60,7 +60,7 @@ namespace EmployeeAPI.Controllers
 
         [HttpPost]
         [ActionName("createorupdate")]
-        public void CreateOrUpdate([FromUri]int id,[FromBody] MyEmployee employee)
+        public void CreateOrUpdate([FromBody] MyEmployee employee)
         {
             MymainService.CreateOrUpdate(employee);
         }
