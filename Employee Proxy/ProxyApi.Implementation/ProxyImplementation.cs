@@ -77,5 +77,23 @@ namespace ProxyApi.Implementation
             var request = new RestRequest("api/employee/deleteEmployee/" + employeeid, Method.DELETE);
             client.Delete(request);
         }
+
+        public void CreateOrUpdate(ProxyEmployee employee)
+        {
+            var client = new RestClient("http://localhost:50428/");
+            var request = new RestRequest("api/employee/createorupdate", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(new ProxyEmployee
+            {
+                Id = employee.Id,
+                Name = employee.Name,
+                Salary = employee.Salary,
+                Job = employee.Job,
+                Birthday = employee.Birthday
+
+            });
+            client.Post(request);
+
+        }
     }
 }
