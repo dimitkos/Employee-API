@@ -143,5 +143,20 @@ namespace ProxyApi.Controllers
 
         }
 
+        [HttpPost]
+        [ActionName("createorupdateProxy")]
+        public HttpResponseMessage CreateOrUpdateEmployee([FromBody] ProxyEmployee employee)
+        {
+            if(employee !=null)
+            {
+                MyProxyService.CreateOrUpdate(employee);
+                return Request.CreateResponse(HttpStatusCode.OK, employee);
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Employee Not Found");
+            }
+        }
+
     }
 }
